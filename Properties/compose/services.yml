@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  webapi:
+    build:
+      context: ../
+      dockerfile: /Dockerfile
+    container_name: test-webapi
+    restart: unless-stopped
+    ports:
+      - 5000:80
+    networks:
+      - testnet
+
+networks:
+  testnet:
+    name: testnet
+    external: true
